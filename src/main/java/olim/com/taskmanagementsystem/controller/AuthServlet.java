@@ -44,7 +44,7 @@ public class AuthServlet extends BaseServlet {
                     response.sendRedirect(request.getContextPath() + "/tasks");
                     return;
                 }
-                forwardToJsp(request, response, "/WEB-INF/auth/login.jsp");
+                forwardToJsp(request, response, "/auth/login.jsp");
                 break;
                 
             case "/register":
@@ -53,7 +53,7 @@ public class AuthServlet extends BaseServlet {
                     response.sendRedirect(request.getContextPath() + "/tasks");
                     return;
                 }
-                forwardToJsp(request, response, "/WEB-INF/auth/register.jsp");
+                forwardToJsp(request, response, "/auth/register.jsp");
                 break;
                 
             case "/logout":
@@ -107,7 +107,7 @@ public class AuthServlet extends BaseServlet {
         
         if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
             request.setAttribute("error", "Username and password are required");
-            forwardToJsp(request, response, "/WEB-INF/auth/login.jsp");
+            forwardToJsp(request, response, "/auth/login.jsp");
             return;
         }
         
@@ -137,7 +137,7 @@ public class AuthServlet extends BaseServlet {
                     sendErrorResponse(response, HttpServletResponse.SC_UNAUTHORIZED, "Invalid username or password");
                 } else {
                     request.setAttribute("error", "Invalid username or password");
-                    forwardToJsp(request, response, "/WEB-INF/auth/login.jsp");
+                    forwardToJsp(request, response, "/auth/login.jsp");
                 }
             }
         } catch (Exception e) {
@@ -145,7 +145,7 @@ public class AuthServlet extends BaseServlet {
                 sendErrorResponse(response, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
             } else {
                 request.setAttribute("error", e.getMessage());
-                forwardToJsp(request, response, "/WEB-INF/auth/login.jsp");
+                forwardToJsp(request, response, "/auth/login.jsp");
             }
         }
     }
@@ -193,7 +193,7 @@ public class AuthServlet extends BaseServlet {
             request.setAttribute("email", email);
             request.setAttribute("fullName", fullName);
             
-            forwardToJsp(request, response, "/WEB-INF/auth/register.jsp");
+            forwardToJsp(request, response, "/auth/register.jsp");
             return;
         }
         
@@ -212,7 +212,7 @@ public class AuthServlet extends BaseServlet {
                 response.sendRedirect(request.getContextPath() + "/auth/login");
             } else {
                 request.setAttribute("error", "Registration failed. Please try again.");
-                forwardToJsp(request, response, "/WEB-INF/auth/register.jsp");
+                forwardToJsp(request, response, "/auth/register.jsp");
             }
         } catch (IllegalArgumentException e) {
             request.setAttribute("error", e.getMessage());
@@ -222,7 +222,7 @@ public class AuthServlet extends BaseServlet {
             request.setAttribute("email", email);
             request.setAttribute("fullName", fullName);
             
-            forwardToJsp(request, response, "/WEB-INF/auth/register.jsp");
+            forwardToJsp(request, response, "/auth/register.jsp");
         } catch (Exception e) {
             request.setAttribute("error", "An unexpected error occurred: " + e.getMessage());
             
@@ -231,7 +231,7 @@ public class AuthServlet extends BaseServlet {
             request.setAttribute("email", email);
             request.setAttribute("fullName", fullName);
             
-            forwardToJsp(request, response, "/WEB-INF/auth/register.jsp");
+            forwardToJsp(request, response, "/auth/register.jsp");
         }
     }
 }

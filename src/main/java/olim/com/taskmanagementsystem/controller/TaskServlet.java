@@ -68,7 +68,7 @@ public class TaskServlet extends BaseServlet {
         if (pathInfo.equals("/create")) {
             // Show create form
             prepareTaskForm(request);
-            forwardToJsp(request, response, "/WEB-INF/tasks/taskForm.jsp");
+            forwardToJsp(request, response, "/tasks/taskForm.jsp");
         } else if (pathInfo.matches("/\\d+/edit")) {
             // Show edit form
             handleShowEditForm(request, response, taskId);
@@ -197,7 +197,7 @@ public class TaskServlet extends BaseServlet {
         request.setAttribute("assigneeFilter", assigneeFilter);
         
         // Forward to task list page
-        forwardToJsp(request, response, "/WEB-INF/tasks/taskList.jsp");
+        forwardToJsp(request, response, "/tasks/taskList.jsp");
     }
     
     /**
@@ -225,7 +225,7 @@ public class TaskServlet extends BaseServlet {
         request.setAttribute("taskCategories", taskCategories);
         
         // Forward to task details page
-        forwardToJsp(request, response, "/WEB-INF/tasks/taskDetails.jsp");
+        forwardToJsp(request, response, "/tasks/taskDetails.jsp");
     }
     
     /**
@@ -254,7 +254,7 @@ public class TaskServlet extends BaseServlet {
         prepareTaskForm(request);
         
         // Forward to task form page
-        forwardToJsp(request, response, "/WEB-INF/tasks/taskForm.jsp");
+        forwardToJsp(request, response, "/tasks/taskForm.jsp");
     }
     
     /**
@@ -294,7 +294,7 @@ public class TaskServlet extends BaseServlet {
             // Re-populate form and show error
             prepareTaskForm(request);
             request.setAttribute("error", e.getMessage());
-            forwardToJsp(request, response, "/WEB-INF/tasks/taskForm.jsp");
+            forwardToJsp(request, response, "/tasks/taskForm.jsp");
         }
     }
     
@@ -349,7 +349,7 @@ public class TaskServlet extends BaseServlet {
             request.setAttribute("task", existingTask);
             prepareTaskForm(request);
             request.setAttribute("error", e.getMessage());
-            forwardToJsp(request, response, "/WEB-INF/tasks/taskForm.jsp");
+            forwardToJsp(request, response, "/tasks/taskForm.jsp");
         }
     }
     

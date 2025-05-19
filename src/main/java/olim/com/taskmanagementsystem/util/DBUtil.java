@@ -8,9 +8,9 @@ import java.sql.SQLException;
  * Database connection utility class
  */
 public class DBUtil {
-    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/taskmanagementsystem";
+    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/taskmanagementsystemDb";
     private static final String JDBC_USER = "postgres";
-    private static final String JDBC_PASSWORD = "postgres";
+    private static final String JDBC_PASSWORD = "078868";
     
     // Load the PostgreSQL driver
     static {

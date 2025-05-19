@@ -56,7 +56,7 @@ public class CategoryServlet extends BaseServlet {
         
         if (pathInfo.equals("/create")) {
             // Show create form
-            forwardToJsp(request, response, "/WEB-INF/categories/categoryForm.jsp");
+            forwardToJsp(request, response, "/categories/categoryForm.jsp");
         } else if (pathInfo.matches("/\\d+/edit")) {
             // Show edit form
             handleShowEditForm(request, response, categoryId);
@@ -123,7 +123,7 @@ public class CategoryServlet extends BaseServlet {
         request.setAttribute("categories", categories);
         
         // Forward to category list page
-        forwardToJsp(request, response, "/WEB-INF/categories/categoryList.jsp");
+        forwardToJsp(request, response, "/categories/categoryList.jsp");
     }
     
     /**
@@ -141,7 +141,7 @@ public class CategoryServlet extends BaseServlet {
         request.setAttribute("category", category);
         
         // Forward to category details page
-        forwardToJsp(request, response, "/WEB-INF/categories/categoryDetails.jsp");
+        forwardToJsp(request, response, "/categories/categoryDetails.jsp");
     }
     
     /**
@@ -159,7 +159,7 @@ public class CategoryServlet extends BaseServlet {
         request.setAttribute("category", category);
         
         // Forward to category form page
-        forwardToJsp(request, response, "/WEB-INF/categories/categoryForm.jsp");
+        forwardToJsp(request, response, "/categories/categoryForm.jsp");
     }
     
     /**
@@ -182,7 +182,7 @@ public class CategoryServlet extends BaseServlet {
         } catch (Exception e) {
             // Re-populate form and show error
             request.setAttribute("error", e.getMessage());
-            forwardToJsp(request, response, "/WEB-INF/categories/categoryForm.jsp");
+            forwardToJsp(request, response, "/categories/categoryForm.jsp");
         }
     }
     
@@ -215,7 +215,7 @@ public class CategoryServlet extends BaseServlet {
             // Re-populate form and show error
             request.setAttribute("category", existingCategory);
             request.setAttribute("error", e.getMessage());
-            forwardToJsp(request, response, "/WEB-INF/categories/categoryForm.jsp");
+            forwardToJsp(request, response, "categories/categoryForm.jsp");
         }
     }
     
